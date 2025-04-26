@@ -1,6 +1,6 @@
-import "../styles/globals.css";
 import { Inter, Montserrat } from "next/font/google";
 import { ThemeProvider } from "../components/ThemeProvider";
+import "../styles/globals.css";
 import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
 
 const inter = Inter({
@@ -16,8 +16,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "TokenEstate - Real Estate Tokenization Platform",
-  description: "Tokenize real estate assets with ERC-3643 compliant security tokens. Invest in property, earn dividends, and unlock liquidity.",
+  title: "NikTokenize - Real Estate Tokenization Platform",
+  description:
+    "Tokenize real estate assets with ERC-3643 compliant security tokens. Invest in property, earn dividends, and unlock liquidity.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -25,9 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${montserrat.variable} dark`}>
       <body className="flex flex-col min-h-screen bg-base-100">
         <ThemeProvider>
-          <ScaffoldEthAppWithProviders>
-            {children}
-          </ScaffoldEthAppWithProviders>
+          <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
         </ThemeProvider>
       </body>
     </html>

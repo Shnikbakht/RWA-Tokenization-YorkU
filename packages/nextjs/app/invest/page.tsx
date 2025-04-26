@@ -1,34 +1,34 @@
 "use client";
 
 import React, { useState } from "react";
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
 import Link from "next/link";
-import { 
-  FaChartLine, 
-  FaCoins, 
-  FaExchangeAlt, 
-  FaBuilding, 
+import { Footer } from "../../components/Footer";
+import { Header } from "../../components/Header";
+import {
+  FaBars,
+  FaBell,
+  FaBuilding,
+  FaChartLine,
+  FaCog,
+  FaCoins,
+  FaExchangeAlt,
   FaFileAlt,
+  FaHome,
+  FaInfoCircle,
+  FaSignOutAlt,
   FaUser,
   FaWallet,
-  FaBell,
-  FaHome,
-  FaCog,
-  FaSignOutAlt,
-  FaInfoCircle,
-  FaBars
 } from "react-icons/fa";
 
 // Calendar icon component since we're not importing the entire react-icons library
-const FaCalendarAlt = (props) => (
-  <svg 
-    stroke="currentColor" 
-    fill="currentColor" 
-    strokeWidth="0" 
-    viewBox="0 0 448 512" 
-    height="1em" 
-    width="1em" 
+const FaCalendarAlt = props => (
+  <svg
+    stroke="currentColor"
+    fill="currentColor"
+    strokeWidth="0"
+    viewBox="0 0 448 512"
+    height="1em"
+    width="1em"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
@@ -55,7 +55,7 @@ const mockPortfolio = {
       unrealizedGain: 2250,
       dividendsPaid: 780,
       nextDividend: "May 15, 2025",
-      image: "/images/property1.jpg"
+      image: "/images/property1.jpg",
     },
     {
       id: 2,
@@ -69,8 +69,8 @@ const mockPortfolio = {
       unrealizedGain: 1500,
       dividendsPaid: 470,
       nextDividend: "June 1, 2025",
-      image: "/images/property2.jpg"
-    }
+      image: "/images/property2.jpg",
+    },
   ],
   recentTransactions: [
     {
@@ -79,7 +79,7 @@ const mockPortfolio = {
       property: "Luxury Downtown Apartment",
       amount: 195,
       date: "Jan 15, 2025",
-      status: "Completed"
+      status: "Completed",
     },
     {
       id: 2,
@@ -87,7 +87,7 @@ const mockPortfolio = {
       property: "Commercial Office Building",
       amount: 162.5,
       date: "Mar 1, 2025",
-      status: "Completed"
+      status: "Completed",
     },
     {
       id: 3,
@@ -95,8 +95,8 @@ const mockPortfolio = {
       property: "Commercial Office Building",
       amount: 5000,
       date: "Nov 5, 2024",
-      status: "Completed"
-    }
+      status: "Completed",
+    },
   ],
   marketplaceActivity: [
     {
@@ -106,7 +106,7 @@ const mockPortfolio = {
       pricePerToken: 250,
       availableTokens: 120,
       apy: 4.8,
-      image: "/images/property3.jpg"
+      image: "/images/property3.jpg",
     },
     {
       id: 2,
@@ -115,9 +115,9 @@ const mockPortfolio = {
       pricePerToken: 415,
       availableTokens: 85,
       apy: 5.5,
-      image: "/images/property4.jpg"
-    }
-  ]
+      image: "/images/property4.jpg",
+    },
+  ],
 };
 
 // Main dashboard page component
@@ -132,14 +132,14 @@ export default function InvestorDashboard() {
     { id: "dividends", label: "Dividends", icon: <FaCoins className="w-5 h-5" /> },
     { id: "marketplace", label: "Marketplace", icon: <FaExchangeAlt className="w-5 h-5" /> },
     { id: "documents", label: "Documents", icon: <FaFileAlt className="w-5 h-5" /> },
-    { id: "settings", label: "Settings", icon: <FaCog className="w-5 h-5" /> }
+    { id: "settings", label: "Settings", icon: <FaCog className="w-5 h-5" /> },
   ];
 
   return (
     <>
       <main className="flex min-h-screen bg-base-100">
         {/* Mobile menu toggle button - visible only on small screens */}
-        <button 
+        <button
           className="fixed bottom-4 right-4 z-50 lg:hidden btn btn-circle btn-primary shadow-lg"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
@@ -147,11 +147,13 @@ export default function InvestorDashboard() {
         </button>
 
         {/* Sidebar Navigation - hidden on mobile unless toggled */}
-        <div className={`
+        <div
+          className={`
           fixed inset-y-0 left-0 z-40 w-64 bg-estate-600 shadow-lg transform transition-transform duration-300 ease-in-out
           lg:relative lg:translate-x-0 
-          ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-        `}>
+          ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
+        `}
+        >
           {/* Dashboard User Info */}
           <div className="p-4 border-b border-estate-500">
             <div className="flex items-center gap-3">
@@ -159,7 +161,7 @@ export default function InvestorDashboard() {
                 <FaUser />
               </div>
               <div>
-                <h2 className="font-semibold text-white">Alex Johnson</h2>
+                <h2 className="font-semibold text-white">Shahla Nikbakht</h2>
                 <p className="text-sm text-estate-200">Investor</p>
               </div>
             </div>
@@ -176,9 +178,11 @@ export default function InvestorDashboard() {
                       setMobileMenuOpen(false); // Close mobile menu on navigation
                     }}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors
-                      ${activeTab === item.id 
-                        ? 'bg-estate-500 text-white' 
-                        : 'text-estate-200 hover:bg-estate-500/50 hover:text-white'}
+                      ${
+                        activeTab === item.id
+                          ? "bg-estate-500 text-white"
+                          : "text-estate-200 hover:bg-estate-500/50 hover:text-white"
+                      }
                     `}
                   >
                     {item.icon}
@@ -241,7 +245,7 @@ export default function InvestorDashboard() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="bg-base-200 rounded-lg p-6 shadow-md">
                     <div className="flex justify-between">
                       <div>
@@ -258,7 +262,7 @@ export default function InvestorDashboard() {
                       </span>
                     </div>
                   </div>
-                  
+
                   <div className="bg-base-200 rounded-lg p-6 shadow-md">
                     <div className="flex justify-between">
                       <div>
@@ -270,7 +274,7 @@ export default function InvestorDashboard() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="bg-base-200 rounded-lg p-6 shadow-md">
                     <div className="flex justify-between">
                       <div>
@@ -288,14 +292,14 @@ export default function InvestorDashboard() {
                 <div>
                   <div className="flex justify-between items-center mb-4">
                     <h2 className="text-xl font-semibold">My Properties</h2>
-                    <button 
+                    <button
                       onClick={() => setActiveTab("properties")}
                       className="text-estate-300 hover:text-estate-200"
                     >
                       View All
                     </button>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {mockPortfolio.properties.map(property => (
                       <div key={property.id} className="bg-base-200 rounded-lg shadow-md overflow-hidden">
@@ -307,11 +311,11 @@ export default function InvestorDashboard() {
                             {property.apy}% APY
                           </div>
                         </div>
-                        
+
                         <div className="p-5">
                           <h3 className="font-semibold text-lg mb-1">{property.name}</h3>
                           <p className="text-estate-100 text-sm mb-4">{property.location}</p>
-                          
+
                           <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
                               <p className="text-xs text-estate-100">Investment</p>
@@ -330,7 +334,7 @@ export default function InvestorDashboard() {
                               <p className="font-semibold">${property.tokenPrice}</p>
                             </div>
                           </div>
-                          
+
                           <Link href={`/property/${property.id}`} className="btn btn-primary btn-sm w-full">
                             View Details
                           </Link>
@@ -388,14 +392,14 @@ export default function InvestorDashboard() {
                 <div>
                   <div className="flex justify-between items-center mb-4">
                     <h2 className="text-xl font-semibold">Marketplace Opportunities</h2>
-                    <button 
+                    <button
                       onClick={() => setActiveTab("marketplace")}
                       className="text-estate-300 hover:text-estate-200"
                     >
                       View All
                     </button>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {mockPortfolio.marketplaceActivity.map(listing => (
                       <div key={listing.id} className="bg-base-200 rounded-lg shadow-md overflow-hidden">
@@ -407,11 +411,11 @@ export default function InvestorDashboard() {
                             {listing.apy}% APY
                           </div>
                         </div>
-                        
+
                         <div className="p-5">
                           <h3 className="font-semibold text-lg mb-1">{listing.property}</h3>
                           <p className="text-estate-100 text-sm mb-4">{listing.location}</p>
-                          
+
                           <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
                               <p className="text-xs text-estate-100">Price per Token</p>
@@ -422,7 +426,7 @@ export default function InvestorDashboard() {
                               <p className="font-semibold">{listing.availableTokens}</p>
                             </div>
                           </div>
-                          
+
                           <Link href={`/marketplace/${listing.id}`} className="btn btn-primary btn-sm w-full">
                             Invest Now
                           </Link>
@@ -438,7 +442,7 @@ export default function InvestorDashboard() {
             {activeTab === "properties" && (
               <div>
                 <h2 className="text-2xl font-semibold mb-6">My Properties</h2>
-                
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {mockPortfolio.properties.map(property => (
                     <div key={property.id} className="bg-base-200 rounded-lg shadow-lg overflow-hidden">
@@ -450,11 +454,11 @@ export default function InvestorDashboard() {
                           {property.apy}% APY
                         </div>
                       </div>
-                      
+
                       <div className="p-6">
                         <h3 className="font-semibold text-xl mb-2">{property.name}</h3>
                         <p className="text-estate-100 text-sm mb-6">{property.location}</p>
-                        
+
                         <div className="bg-base-300/50 rounded-lg p-4 mb-6">
                           <div className="grid grid-cols-2 gap-4">
                             <div>
@@ -483,17 +487,20 @@ export default function InvestorDashboard() {
                             </div>
                           </div>
                         </div>
-                        
+
                         <div className="mb-6">
                           <p className="text-sm mb-1">Next Dividend Payment</p>
                           <p className="font-semibold">{property.nextDividend}</p>
                         </div>
-                        
+
                         <div className="flex gap-3">
                           <Link href={`/property/${property.id}`} className="btn btn-primary flex-1">
                             View Details
                           </Link>
-                          <Link href={`/property/${property.id}/sell`} className="btn btn-outline flex-1 border-estate-300 text-estate-300 hover:bg-estate-500 hover:border-estate-400">
+                          <Link
+                            href={`/property/${property.id}/sell`}
+                            className="btn btn-outline flex-1 border-estate-300 text-estate-300 hover:bg-estate-500 hover:border-estate-400"
+                          >
                             Sell Tokens
                           </Link>
                         </div>
@@ -508,7 +515,7 @@ export default function InvestorDashboard() {
             {activeTab === "dividends" && (
               <div>
                 <h2 className="text-2xl font-semibold mb-6">Dividend History</h2>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                   <div className="bg-base-200 rounded-lg p-6 shadow-md">
                     <div className="flex justify-between">
@@ -521,7 +528,7 @@ export default function InvestorDashboard() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="bg-base-200 rounded-lg p-6 shadow-md">
                     <div className="flex justify-between">
                       <div>
@@ -533,7 +540,7 @@ export default function InvestorDashboard() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="bg-base-200 rounded-lg p-6 shadow-md">
                     <div className="flex justify-between">
                       <div>
@@ -546,7 +553,7 @@ export default function InvestorDashboard() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-base-200 rounded-lg shadow-md overflow-hidden">
                   <div className="overflow-x-auto">
                     <table className="table w-full">
@@ -609,7 +616,9 @@ export default function InvestorDashboard() {
                             </span>
                           </td>
                           <td>
-                            <button disabled className="btn btn-xs btn-ghost opacity-50">View Receipt</button>
+                            <button disabled className="btn btn-xs btn-ghost opacity-50">
+                              View Receipt
+                            </button>
                           </td>
                         </tr>
                       </tbody>
@@ -623,7 +632,7 @@ export default function InvestorDashboard() {
             {activeTab === "marketplace" && (
               <div>
                 <h2 className="text-2xl font-semibold mb-6">Marketplace</h2>
-                
+
                 {/* Filters */}
                 <div className="flex flex-wrap gap-4 mb-8">
                   <div className="form-control w-full max-w-xs">
@@ -638,7 +647,7 @@ export default function InvestorDashboard() {
                       <option value="industrial">Industrial</option>
                     </select>
                   </div>
-                  
+
                   <div className="form-control w-full max-w-xs">
                     <label className="label">
                       <span className="label-text">Location</span>
@@ -651,7 +660,7 @@ export default function InvestorDashboard() {
                       <option value="ca">California</option>
                     </select>
                   </div>
-                  
+
                   <div className="form-control w-full max-w-xs">
                     <label className="label">
                       <span className="label-text">Min. APY</span>
@@ -664,7 +673,7 @@ export default function InvestorDashboard() {
                       <option value="6">6%+</option>
                     </select>
                   </div>
-                  
+
                   <div className="form-control w-full max-w-xs">
                     <label className="label">
                       <span className="label-text">Sort By</span>
@@ -677,10 +686,11 @@ export default function InvestorDashboard() {
                     </select>
                   </div>
                 </div>
-                
+
                 {/* Property Listings */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[...mockPortfolio.marketplaceActivity, 
+                  {[
+                    ...mockPortfolio.marketplaceActivity,
                     {
                       id: 3,
                       property: "Industrial Warehouse",
@@ -688,7 +698,7 @@ export default function InvestorDashboard() {
                       pricePerToken: 180,
                       availableTokens: 250,
                       apy: 5.1,
-                      image: "/images/property5.jpg"
+                      image: "/images/property5.jpg",
                     },
                     {
                       id: 4,
@@ -697,7 +707,7 @@ export default function InvestorDashboard() {
                       pricePerToken: 650,
                       availableTokens: 75,
                       apy: 4.2,
-                      image: "/images/property6.jpg"
+                      image: "/images/property6.jpg",
                     },
                     {
                       id: 5,
@@ -706,7 +716,7 @@ export default function InvestorDashboard() {
                       pricePerToken: 325,
                       availableTokens: 180,
                       apy: 5.8,
-                      image: "/images/property7.jpg"
+                      image: "/images/property7.jpg",
                     },
                     {
                       id: 6,
@@ -715,8 +725,8 @@ export default function InvestorDashboard() {
                       pricePerToken: 210,
                       availableTokens: 320,
                       apy: 6.2,
-                      image: "/images/property8.jpg"
-                    }
+                      image: "/images/property8.jpg",
+                    },
                   ].map(listing => (
                     <div key={listing.id} className="bg-base-200 rounded-lg shadow-md overflow-hidden">
                       <div className="relative h-40 bg-estate-400">
@@ -727,11 +737,11 @@ export default function InvestorDashboard() {
                           {listing.apy}% APY
                         </div>
                       </div>
-                      
+
                       <div className="p-5">
                         <h3 className="font-semibold text-lg mb-1">{listing.property}</h3>
                         <p className="text-estate-100 text-sm mb-4">{listing.location}</p>
-                        
+
                         <div className="grid grid-cols-2 gap-4 mb-4">
                           <div>
                             <p className="text-xs text-estate-100">Price per Token</p>
@@ -742,7 +752,7 @@ export default function InvestorDashboard() {
                             <p className="font-semibold">{listing.availableTokens}</p>
                           </div>
                         </div>
-                        
+
                         <Link href={`/marketplace/${listing.id}`} className="btn btn-primary btn-sm w-full">
                           Invest Now
                         </Link>
@@ -750,11 +760,11 @@ export default function InvestorDashboard() {
                     </div>
                   ))}
                 </div>
-                
+
                 {/* Secondary Market */}
                 <div className="mt-12">
                   <h3 className="text-xl font-semibold mb-4">Secondary Market Listings</h3>
-                  
+
                   <div className="bg-base-200 rounded-lg shadow-md overflow-hidden">
                     <div className="overflow-x-auto">
                       <table className="table w-full">
@@ -815,11 +825,11 @@ export default function InvestorDashboard() {
             {activeTab === "documents" && (
               <div>
                 <h2 className="text-2xl font-semibold mb-6">Documents</h2>
-                
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div className="bg-base-200 rounded-lg shadow-md p-6">
                     <h3 className="text-xl font-semibold mb-4">Property Documents</h3>
-                    
+
                     <div className="space-y-4">
                       {mockPortfolio.properties.map(property => (
                         <div key={property.id} className="border-b border-base-300 pb-4">
@@ -846,11 +856,11 @@ export default function InvestorDashboard() {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div className="space-y-8">
                     <div className="bg-base-200 rounded-lg shadow-md p-6">
                       <h3 className="text-xl font-semibold mb-4">Account Documents</h3>
-                      
+
                       <div className="space-y-2">
                         <a href="#" className="flex items-center gap-2 p-2 hover:bg-base-300 rounded-lg">
                           <FaFileAlt className="text-token-red" />
@@ -870,15 +880,15 @@ export default function InvestorDashboard() {
                         </a>
                       </div>
                     </div>
-                    
+
                     <div className="bg-base-200 rounded-lg shadow-md p-6">
                       <h3 className="text-xl font-semibold mb-4">Transaction Receipts</h3>
-                      
+
                       <div className="space-y-2">
                         {mockPortfolio.recentTransactions.map(transaction => (
-                          <a 
+                          <a
                             key={transaction.id}
-                            href="#" 
+                            href="#"
                             className="flex items-center justify-between p-2 hover:bg-base-300 rounded-lg"
                           >
                             <div className="flex items-center gap-2">
@@ -901,13 +911,13 @@ export default function InvestorDashboard() {
             {activeTab === "settings" && (
               <div>
                 <h2 className="text-2xl font-semibold mb-6">Account Settings</h2>
-                
+
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Profile Settings */}
                   <div className="lg:col-span-2">
                     <div className="bg-base-200 rounded-lg shadow-lg p-6 mb-8">
                       <h3 className="text-xl font-semibold mb-4">Profile Information</h3>
-                      
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div className="form-control w-full">
                           <label className="label">
@@ -915,21 +925,25 @@ export default function InvestorDashboard() {
                           </label>
                           <input type="text" className="input input-bordered w-full" defaultValue="Alex" />
                         </div>
-                        
+
                         <div className="form-control w-full">
                           <label className="label">
                             <span className="label-text">Last Name</span>
                           </label>
                           <input type="text" className="input input-bordered w-full" defaultValue="Johnson" />
                         </div>
-                        
+
                         <div className="form-control w-full">
                           <label className="label">
                             <span className="label-text">Email Address</span>
                           </label>
-                          <input type="email" className="input input-bordered w-full" defaultValue="alex.johnson@example.com" />
+                          <input
+                            type="email"
+                            className="input input-bordered w-full"
+                            defaultValue="alex.johnson@example.com"
+                          />
                         </div>
-                        
+
                         <div className="form-control w-full">
                           <label className="label">
                             <span className="label-text">Phone Number</span>
@@ -937,27 +951,46 @@ export default function InvestorDashboard() {
                           <input type="tel" className="input input-bordered w-full" defaultValue="+1 (555) 123-4567" />
                         </div>
                       </div>
-                      
+
                       <div className="form-control w-full mb-6">
                         <label className="label">
                           <span className="label-text">Address</span>
                         </label>
-                        <input type="text" className="input input-bordered w-full mb-2" defaultValue="123 Main Street" />
+                        <input
+                          type="text"
+                          className="input input-bordered w-full mb-2"
+                          defaultValue="123 Main Street"
+                        />
                         <input type="text" className="input input-bordered w-full mb-2" defaultValue="Apt 4B" />
-                        
+
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                          <input type="text" className="input input-bordered w-full" placeholder="City" defaultValue="New York" />
-                          <input type="text" className="input input-bordered w-full" placeholder="State" defaultValue="NY" />
-                          <input type="text" className="input input-bordered w-full" placeholder="Zip" defaultValue="10001" />
+                          <input
+                            type="text"
+                            className="input input-bordered w-full"
+                            placeholder="City"
+                            defaultValue="New York"
+                          />
+                          <input
+                            type="text"
+                            className="input input-bordered w-full"
+                            placeholder="State"
+                            defaultValue="NY"
+                          />
+                          <input
+                            type="text"
+                            className="input input-bordered w-full"
+                            placeholder="Zip"
+                            defaultValue="10001"
+                          />
                         </div>
                       </div>
-                      
+
                       <button className="btn btn-primary">Save Changes</button>
                     </div>
-                    
+
                     <div className="bg-base-200 rounded-lg shadow-lg p-6">
                       <h3 className="text-xl font-semibold mb-4">Security Settings</h3>
-                      
+
                       <div className="space-y-6">
                         <div>
                           <h4 className="font-medium mb-2">Change Password</h4>
@@ -968,14 +1001,14 @@ export default function InvestorDashboard() {
                               </label>
                               <input type="password" className="input input-bordered w-full" />
                             </div>
-                            
+
                             <div className="form-control w-full">
                               <label className="label">
                                 <span className="label-text">New Password</span>
                               </label>
                               <input type="password" className="input input-bordered w-full" />
                             </div>
-                            
+
                             <div className="form-control w-full">
                               <label className="label">
                                 <span className="label-text">Confirm New Password</span>
@@ -985,22 +1018,24 @@ export default function InvestorDashboard() {
                           </div>
                           <button className="btn btn-primary mt-4">Update Password</button>
                         </div>
-                        
+
                         <div className="divider"></div>
-                        
+
                         <div>
                           <h4 className="font-medium mb-2">Two-Factor Authentication</h4>
                           <div className="flex items-center justify-between">
                             <div>
                               <p className="text-sm text-estate-100 mb-1">Protect your account with 2FA security.</p>
-                              <p className="text-xs text-estate-200">Status: <span className="text-token-green">Enabled</span></p>
+                              <p className="text-xs text-estate-200">
+                                Status: <span className="text-token-green">Enabled</span>
+                              </p>
                             </div>
                             <button className="btn btn-sm btn-outline">Disable</button>
                           </div>
                         </div>
-                        
+
                         <div className="divider"></div>
-                        
+
                         <div>
                           <h4 className="font-medium mb-2">Connected Wallets</h4>
                           <div className="bg-base-300 p-3 rounded-lg flex items-center justify-between mb-2">
@@ -1020,12 +1055,12 @@ export default function InvestorDashboard() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Sidebar Settings */}
                   <div>
                     <div className="bg-base-200 rounded-lg shadow-lg p-6 mb-8">
                       <h3 className="text-xl font-semibold mb-4">Notification Settings</h3>
-                      
+
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
                           <div>
@@ -1034,9 +1069,9 @@ export default function InvestorDashboard() {
                           </div>
                           <input type="checkbox" className="toggle toggle-primary" defaultChecked />
                         </div>
-                        
+
                         <div className="divider my-2"></div>
-                        
+
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-medium">Dividend Alerts</p>
@@ -1044,9 +1079,9 @@ export default function InvestorDashboard() {
                           </div>
                           <input type="checkbox" className="toggle toggle-primary" defaultChecked />
                         </div>
-                        
+
                         <div className="divider my-2"></div>
-                        
+
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-medium">Property Updates</p>
@@ -1054,9 +1089,9 @@ export default function InvestorDashboard() {
                           </div>
                           <input type="checkbox" className="toggle toggle-primary" defaultChecked />
                         </div>
-                        
+
                         <div className="divider my-2"></div>
-                        
+
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-medium">Market Opportunities</p>
@@ -1066,10 +1101,10 @@ export default function InvestorDashboard() {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="bg-base-200 rounded-lg shadow-lg p-6">
                       <h3 className="text-xl font-semibold mb-4">Payment Methods</h3>
-                      
+
                       <div className="bg-base-300 p-3 rounded-lg flex items-center justify-between mb-4">
                         <div className="flex items-center gap-2">
                           <div className="bg-white p-1 rounded">
@@ -1082,7 +1117,7 @@ export default function InvestorDashboard() {
                         </div>
                         <div className="badge badge-primary">Default</div>
                       </div>
-                      
+
                       <button className="btn btn-sm btn-outline w-full">Add Payment Method</button>
                     </div>
                   </div>
@@ -1091,10 +1126,10 @@ export default function InvestorDashboard() {
             )}
           </div>
         </div>
-        
+
         {/* Overlay for mobile navigation */}
         {mobileMenuOpen && (
-          <div 
+          <div
             className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           ></div>
@@ -1102,4 +1137,4 @@ export default function InvestorDashboard() {
       </main>
     </>
   );
-} 
+}

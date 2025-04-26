@@ -36,7 +36,7 @@ const DashboardSelector = ({ currentRole }: { currentRole: Role }) => {
             {currentRole === 'admin' && <FaUserShield />}
           </span>
           {currentRole === 'investor' && 'Investor View'}
-          {currentRole === 'issuer' && 'Asset Issuer View'}
+          {currentRole === 'issuer' && 'Dashboard'}
           {currentRole === 'admin' && 'Admin View'}
           <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
@@ -78,9 +78,7 @@ const DashboardSelector = ({ currentRole }: { currentRole: Role }) => {
           </li>
         </ul>
       </div>
-      <div className="mt-2 px-3 py-1 text-xs rounded-full bg-estate-500 text-white text-center">
-        Demo Mode
-      </div>
+  
     </div>
   );
 };

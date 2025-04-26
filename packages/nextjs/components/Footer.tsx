@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { FaEthereum, FaTwitter, FaDiscord, FaGithub, FaMedium, FaLinkedin } from "react-icons/fa";
+import { FaDiscord, FaEthereum, FaGithub, FaLinkedin, FaMedium, FaTwitter } from "react-icons/fa";
 
 export const Footer = () => {
   return (
@@ -21,7 +21,8 @@ export const Footer = () => {
               </div>
             </Link>
             <p className="text-sm text-estate-100 mb-4 max-w-xs">
-              TokenEstate is leading the way in real estate tokenization, making property investment accessible, liquid, and transparent.
+              NikTokenize is leading the way in real estate tokenization, making property investment accessible, liquid,
+              and transparent.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-estate-100 hover:text-estate-300 transition">
@@ -75,7 +76,7 @@ export const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/about" className="text-estate-100 hover:text-estate-300 transition">
-                  About TokenEstate
+                  About NikTokenize
                 </Link>
               </li>
               <li>
@@ -125,12 +126,8 @@ export const Footer = () => {
         </div>
 
         <div className="mt-10 pt-6 border-t border-base-300 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-estate-100">
-            &copy; {new Date().getFullYear()} TokenEstate. All rights reserved.
-          </p>
-          <p className="text-sm text-estate-100 mt-4 md:mt-0">
-            Powered by ERC-3643 Token Standard
-          </p>
+          <p className="text-sm text-estate-100">&copy; {new Date().getFullYear()} NikTokenize. All rights reserved.</p>
+          <p className="text-sm text-estate-100 mt-4 md:mt-0">Powered by ERC-3643 Token Standard</p>
         </div>
       </div>
     </footer>

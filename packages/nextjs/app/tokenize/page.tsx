@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import DashboardSelector from "../../../components/DashboardSelector";
-import { Footer } from "../../../components/Footer";
-import { Header } from "../../../components/Header";
+import DashboardSelector from "../../components/DashboardSelector";
+import { Footer } from "../../components/Footer";
+import { Header } from "../../components/Header";
 import {
   FaBars,
   FaBell,
@@ -99,7 +99,7 @@ const mockIssuerData = {
     },
   ],
   investors: [
-    { id: 1, name: "Alex Johnson", investments: 15000, tokens: 150, joinDate: "Oct 10, 2024" },
+    { id: 1, name: "Shahla Nikbakht", investments: 15000, tokens: 150, joinDate: "Oct 10, 2024" },
     { id: 2, name: "Sarah Williams", investments: 25000, tokens: 250, joinDate: "Oct 15, 2024" },
     { id: 3, name: "Michael Brown", investments: 10000, tokens: 100, joinDate: "Oct 18, 2024" },
     { id: 4, name: "Jessica Davis", investments: 30000, tokens: 300, joinDate: "Oct 20, 2024" },

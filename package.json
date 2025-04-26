@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@types/recharts": "^2.0.1",
     "ethers": "^6.13.5",
     "hardhat-deploy": "^0.14.0",
     "husky": "~8.0.3",
@@ -63,5 +64,8 @@
     "@openzeppelin/contracts-upgradeable": "4.8.0",
     "@web3auth/mpc-core-kit": "^2.2.0",
     "wagmi": "^2.14.11"
+  },
+  "resolutions": {
+    "ethereum-cryptography": "1.1.2"
   }
 }
